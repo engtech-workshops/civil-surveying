@@ -1,35 +1,41 @@
 import { defineStore } from "pinia"
 import { ref } from "vue"
+import type { CartesianCoordinates, PolarCoordinates } from "@/types"
 
 export const useReadingStore = defineStore("reading", () => {
   const coordinateType = ref<"cartesian" | "polar">("cartesian")
-  const cartesianCoordinates = ref<Array<[number, number]>>([[0, 0]])
-  const polarCoordinates = ref<Array<[number, number]>>([[0, 0]])
+  const cartesianCoordinatesList = ref<Array<CartesianCoordinates>>([{
+    x: 0, y: 0
+  }])
+  const polarCoordinatesList = ref<Array<PolarCoordinates>>([{
+    degree: 0, minute: 0, second: 0,
+    distance: 0
+  }])
 
   function setCoordinateType(type: "cartesian" | "polar") {
     coordinateType.value = type
   }
 
-  function addCartesianCoordinate() {
-    cartesianCoordinates.value.push([0, 0])
+  function addCartesianCoordinates() {
+    cartesianCoordinatesList.value.push({ x: 0, y: 0 })
   }
 
-  function addPolarCoordinate() {
-    polarCoordinates.value.push([0, 0])
+  function addPolarCoordinates() {
+    polarCoordinatesList.value.push({ degree: 0, minute: 0, second: 0, distance: 0 })
   }
 
-  function clearCoordinates() {
-    cartesianCoordinates.value = []
-    polarCoordinates.value = []
+  function clearCoordinatesLists() {
+    cartesianCoordinatesList.value = []
+    polarCoordinatesList.value = []
   }
 
   return {
     coordinateType,
-    cartesianCoordinates,
-    polarCoordinates,
+    cartesianCoordinatesList,
+    polarCoordinatesList,
     setCoordinateType,
-    addCartesianCoordinate,
-    addPolarCoordinate,
-    clearCoordinates,
+    addCartesianCoordinates,
+    addPolarCoordinates,
+    clearCoordinatesLists,
   }
 })

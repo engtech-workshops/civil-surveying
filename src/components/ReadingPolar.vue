@@ -4,14 +4,10 @@ import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncre
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { PhTrash } from "@phosphor-icons/vue"
+import { PolarCoordinates } from "@/types"
 
 defineProps<{
-  reading: {
-    degree: number,
-    minute: number,
-    second: number,
-    distance: number
-  }
+  reading: PolarCoordinates
   index: number
 }>()
 </script>

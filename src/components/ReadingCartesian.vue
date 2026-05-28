@@ -4,12 +4,10 @@ import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncre
 import { Button } from "@/components/ui/button"
 import { PhTrash } from "@phosphor-icons/vue"
 import { Input } from "@/components/ui/input"
+import { CartesianCoordinates } from "@/types"
 
 defineProps<{
-  reading: {
-    x: number,
-    y: number
-  }
+  reading: CartesianCoordinates
   index: number
 }>()
 </script>

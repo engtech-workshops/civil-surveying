@@ -18,16 +18,16 @@ const readingStore = useReadingStore()
         <TabsTrigger value="polar">Polar</TabsTrigger>
       </TabsList>
       <TabsContent value="cartesian" class="flex flex-col gap-2">
-        <template v-for="(reading, index) in readingStore.cartesianCoordinates" :key="index">
+        <template v-for="(reading, index) in readingStore.cartesianCoordinatesList" :key="index">
           <ReadingCartesian :reading="reading" :index="index"></ReadingCartesian>
         </template>
-        <Button @click="readingStore.addCartesianCoordinate"><PhPlus /></Button>
+        <Button @click="readingStore.addCartesianCoordinates"><PhPlus /></Button>
       </TabsContent>
       <TabsContent value="polar" class="flex flex-col gap-2">
-        <template v-for="(reading, index) in readingStore.polarCoordinates" :key="index">
+        <template v-for="(reading, index) in readingStore.polarCoordinatesList" :key="index">
           <ReadingPolar :reading="reading" :index="index"></ReadingPolar>
         </template>
-        <Button @click="readingStore.addPolarCoordinate"><PhPlus /></Button>
+        <Button @click="readingStore.addPolarCoordinates"><PhPlus /></Button>
       </TabsContent>
     </Tabs>
   </div>
