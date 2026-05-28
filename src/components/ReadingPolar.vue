@@ -19,8 +19,8 @@ defineProps<{
 <template>
   <div class="">
     <div class="font-semibold">Reading {{ index + 1 }}</div>
-    <div class="grid grid-cols-3 gap-2 auto-cols-min">
-      <div class="auto-cols-auto">Angles</div>
+    <div class="grid grid-cols-[max-content_max-content_max-content] items-center gap-x-3 gap-y-2">
+      <div class="text-xs">Angle</div>
       <div class="flex items-center gap-1">
         <Input v-model.number="reading.degree" type="number" min="0" max="360" class="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         <span class="text-center">°</span>
@@ -29,11 +29,13 @@ defineProps<{
         <Input v-model.number="reading.second" type="number" min="0" max="60" class="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         <span class="text-center">″</span>
       </div>
-      <Button @click="deleteReading(index)" size="icon" class="auto-cols-max"><PhTrash /></Button>
-      <div class="auto-cols-auto">Distances</div>
+      <div class="row-span-2 self-stretch flex items-center">
+        <Button @click="" class="h-full bg-red-600"><PhTrash /></Button>
+      </div>
+      <div class="text-xs">Distance</div>
       <div class="flex items-center gap-1">
         <Input v-model.number="reading.distance" type="number" min="0" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
-        <span class="text-center">m</span>
+        <span class="text-center text-xs">m</span>
       </div>
     </div>
   </div>
