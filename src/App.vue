@@ -1,11 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from './components/Header.vue';
+import ReadingList from './components/ReadingList.vue';
+import DisplayZone from './components/DisplayZone.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="w-screen h-screen flex flex-col">
+    <div class="p-2 pb-1">
+      <Header></Header>
+    </div>
+    <div class="p-2 pt-1 flex flex-row gap-2 flex-grow">
+      <ReadingList class=""></ReadingList>
+      <DisplayZone class="flex-1"></DisplayZone>
+    </div>
+  </div>
 </template>
 
 <style scoped></style>
