@@ -10,7 +10,7 @@ import DisplayZone from './components/DisplayZone.vue';
       <Header></Header>
     </div>
     <div class="p-2 pt-1 flex flex-row gap-2 flex-grow">
-      <ReadingList class=""></ReadingList>
+      <ReadingList class="w-100"></ReadingList>
       <DisplayZone class="flex-1"></DisplayZone>
     </div>
   </div>

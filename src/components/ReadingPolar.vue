@@ -17,16 +17,16 @@ defineProps<{
 </script>
 
 <template>
-  <div class="">
+  <div class="flex flex-col">
     <div class="font-semibold">Reading {{ index + 1 }}</div>
-    <div class="grid grid-cols-[max-content_max-content_max-content] items-center gap-x-3 gap-y-2">
+    <div class="grid grid-cols-[max-content_auto_max-content] items-center gap-x-3 gap-y-2">
       <div class="text-xs">Angle</div>
       <div class="flex items-center gap-1">
-        <Input v-model.number="reading.degree" type="number" min="0" max="360" class="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+        <Input v-model.number="reading.degree" type="number" min="0" max="360" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         <span class="text-center">°</span>
-        <Input v-model.number="reading.minute" type="number" min="0" max="60" class="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+        <Input v-model.number="reading.minute" type="number" min="0" max="60" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         <span class="text-center">′</span>
-        <Input v-model.number="reading.second" type="number" min="0" max="60" class="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+        <Input v-model.number="reading.second" type="number" min="0" max="60" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         <span class="text-center">″</span>
       </div>
       <div class="row-span-2 self-stretch flex items-center">

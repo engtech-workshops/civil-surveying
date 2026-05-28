@@ -15,17 +15,17 @@ defineProps<{
 </script>
 
 <template>
-  <div class="">
+  <div class="flex flex-col">
     <div class="font-semibold">Reading {{ index + 1 }}</div>
-    <div class="grid grid-cols-[max-content_max-content_max-content] items-center gap-x-3 gap-y-2">
-      <div class="text-xs">X</div>
+    <div class="grid grid-cols-[max-content_auto_max-content] items-center gap-x-3 gap-y-2">
+      <div class="text-xs">X-Coordinate</div>
       <div class="flex items-center gap-1">
         <Input v-model.number="reading.x" type="number" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
       </div>
       <div class="row-span-2 self-stretch flex items-center">
         <Button @click="" class="h-full bg-red-600"><PhTrash /></Button>
       </div>
-      <div class="text-xs">Y</div>
+      <div class="text-xs">Y-Coordinate</div>
       <div class="flex items-center gap-1">
         <Input v-model.number="reading.y" type="number" class="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
       </div>
