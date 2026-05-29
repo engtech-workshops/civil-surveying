@@ -37,7 +37,7 @@ const layoutStore = useLayoutStore()
 
 <template>
   <div class="border border-border rounded flex flex-col relative">
-    <Button class="absolute top-2 left-2" variant="outline" @click="layoutStore.toggleDisplayZone"><PhCaretLeft /></Button>
+    <Button class="absolute top-2 left-2 md:hidden" variant="outline" @click="layoutStore.toggleDisplayZone"><PhCaretLeft /></Button>
     <svg preserveAspectRatio="xMidYMid meet" :viewBox="viewBox.toString()" class="flex-1">
       <defs>
         <template v-for="(station, index) in stations.slice(0, -1)">
