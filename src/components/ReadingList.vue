@@ -17,7 +17,7 @@ const readingStore = useReadingStore()
         <TabsTrigger value="polar">Polar</TabsTrigger>
         <!-- <TabsTrigger value="cartesian">Cartesian</TabsTrigger> -->
       </TabsList>
-      <TabsContent value="polar" class="flex flex-col flex-1 gap-2 overflow-auto">
+      <TabsContent value="polar" class="flex flex-col flex-1 gap-2 overflow-auto px-1">
         <div class="flex flex-row gap-1">
           <div class="w-2" :style="{ backgroundColor: readingStore.readingColors[0] }"></div>
           <span class="font-semibold">Starting Point</span>
@@ -30,9 +30,9 @@ const readingStore = useReadingStore()
             :color="readingStore.readingColors[(index+1) % readingStore.readingColors.length]"
           />
         </template>
-        <Button @click="readingStore.addPolarCoordinates"><PhPlus /></Button>
+        <Button @click="readingStore.addPolarCoordinates" variant="secondary"><PhPlus /></Button>
       </TabsContent>
-      <TabsContent value="cartesian" class="flex flex-col flex-1 gap-2 overflow-auto">
+      <TabsContent value="cartesian" class="flex flex-col flex-1 gap-2 overflow-auto px-1">
         <div class="flex flex-row gap-1">
           <div class="w-2" :style="{ backgroundColor: readingStore.readingColors[0] }"></div>
           <span class="font-semibold">Starting Point</span>
@@ -45,7 +45,7 @@ const readingStore = useReadingStore()
             :color="readingStore.readingColors[(index+1) % readingStore.readingColors.length]"
           />
         </template>
-        <Button @click="readingStore.addCartesianCoordinates"><PhPlus /></Button>
+        <Button @click="readingStore.addCartesianCoordinates" variant="outline"><PhPlus /></Button>
       </TabsContent>
     </Tabs>
   </div>

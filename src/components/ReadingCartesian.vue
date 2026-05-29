@@ -30,7 +30,7 @@ const emit = defineEmits<{
         </div>
       </div>
       <div class="self-stretch flex items-center">
-        <Button @click="emit('delete')" class="h-full bg-red-600"><PhTrash /></Button>
+        <Button @click="emit('delete')" class="h-full border-destructive text-destructive hover:bg-destructive hover:text-white" variant="outline"><PhTrash /></Button>
       </div>
     </div>
   </div>
