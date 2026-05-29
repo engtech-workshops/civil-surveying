@@ -14,6 +14,7 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
   ],
+  base: '/civil-surveying/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
