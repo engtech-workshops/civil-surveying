@@ -4,10 +4,10 @@ import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncre
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { PhTrash } from "@phosphor-icons/vue"
-import { PolarCoordinates } from "@/types"
+import type { PolarCoordinates } from "@/types"
 
+const reading = defineModel<PolarCoordinates>({ required: true })
 defineProps<{
-  reading: PolarCoordinates
   index: number
 }>()
 </script>

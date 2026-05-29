@@ -9,3 +9,8 @@ export interface PolarCoordinates {
   second: number
   distance: number
 }
+
+export interface StationProperties {
+  x: number
+  y: number
+}
