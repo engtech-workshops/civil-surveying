@@ -3,7 +3,7 @@ import { ref } from "vue"
 import type { CartesianCoordinates, PolarCoordinates } from "@/types"
 
 export const useReadingStore = defineStore("reading", () => {
-  const coordinateType = ref<"cartesian" | "polar">("cartesian")
+  const coordinateType = ref<"cartesian" | "polar">("polar")
   const cartesianCoordinatesList = ref<Array<CartesianCoordinates>>([{
     x: 0, y: 0
   }])
@@ -24,6 +24,14 @@ export const useReadingStore = defineStore("reading", () => {
     polarCoordinatesList.value.push({ degree: 0, minute: 0, second: 0, distance: 0 })
   }
 
+  function deleteCartesianCoordinates(index: number) {
+    cartesianCoordinatesList.value.splice(index, 1)
+  }
+
+  function deletePolarCoordinates(index: number) {
+    polarCoordinatesList.value.splice(index, 1)
+  }
+
   function clearCoordinatesLists() {
     cartesianCoordinatesList.value = []
     polarCoordinatesList.value = []
@@ -36,6 +44,8 @@ export const useReadingStore = defineStore("reading", () => {
     setCoordinateType,
     addCartesianCoordinates,
     addPolarCoordinates,
+    deleteCartesianCoordinates,
+    deletePolarCoordinates,
     clearCoordinatesLists,
   }
 })
