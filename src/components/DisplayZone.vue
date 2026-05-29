@@ -2,6 +2,8 @@
 import { ref, computed } from "vue"
 import type { StationProperties } from "@/types"
 import { calcPosFromPolar } from "@/utils/calcPosFromPolar"
+import { PhCaretLeft } from "@phosphor-icons/vue"
+import { Button } from "@/components/ui/button"
 import { useReadingStore } from "@/stores/reading"
 const readingStore = useReadingStore()
 const stations = computed<Array<StationProperties>>(() => {
@@ -27,10 +29,15 @@ const viewBox = computed(() => {
   const yrange = ymax - ymin
   return [xmin - vbPadding, ymin - vbPadding, xrange + 2*vbPadding, yrange + 2*vbPadding]
 })
+
+import { useLayoutStore } from "@/stores/layout"
+const layoutStore = useLayoutStore()
+
 </script>
 
 <template>
-  <div class="border border-border rounded flex flex-col">
+  <div class="border border-border rounded flex flex-col relative">
+    <Button class="absolute top-2 left-2" variant="outline" @click="layoutStore.toggleDisplayZone"><PhCaretLeft /></Button>
     <svg preserveAspectRatio="xMidYMid meet" :viewBox="viewBox.toString()" class="flex-1">
       <defs>
         <template v-for="(station, index) in stations.slice(0, -1)">

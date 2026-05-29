@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import ReadingCartesian from "./ReadingCartesian.vue"
 import ReadingPolar from "./ReadingPolar.vue"
-import { PhPlus } from "@phosphor-icons/vue"
+import { PhCaretRight, PhPlus } from "@phosphor-icons/vue"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import type { CartesianCoordinates, PolarCoordinates } from "@/types"
 import { useReadingStore } from "@/stores/reading"
 
 const readingStore = useReadingStore()
+
+import { useLayoutStore } from "@/stores/layout"
+const layoutStore = useLayoutStore()
+
 </script>
 
 <template>
-  <div class="border border-border rounded p-3 flex flex-col gap-2 overflow-hidden">
+  <div class="border border-border rounded p-3 flex flex-col gap-2 overflow-hidden relative">
+    <Button class="absolute top-2 right-2 md:hidden" variant="outline" @click="layoutStore.toggleDisplayZone"><PhCaretRight /></Button>
     <Tabs default-value="cartesian" v-model="readingStore.coordinateType" class="flex flex-col overflow-hidden">
       <TabsList>
         <TabsTrigger value="polar">Polar</TabsTrigger>
