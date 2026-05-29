@@ -1,6 +1,7 @@
 import { defineStore } from "pinia"
 import { ref } from "vue"
 import type { CartesianCoordinates, PolarCoordinates } from "@/types"
+import colorbrewer from "colorbrewer"
 
 export const useReadingStore = defineStore("reading", () => {
   const coordinateType = ref<"cartesian" | "polar">("polar")
@@ -11,6 +12,7 @@ export const useReadingStore = defineStore("reading", () => {
     degree: 0, minute: 0, second: 0,
     distance: 0
   }])
+  const readingColors = ref<Array<string>>(colorbrewer.Set3[12])
 
   function setCoordinateType(type: "cartesian" | "polar") {
     coordinateType.value = type
@@ -38,6 +40,7 @@ export const useReadingStore = defineStore("reading", () => {
   }
 
   return {
+    readingColors,
     coordinateType,
     cartesianCoordinatesList,
     polarCoordinatesList,

@@ -13,7 +13,7 @@ const stations = computed<Array<StationProperties>>(() => {
   }
 })
 const stationSize = 5
-const stationColor = "green"
+const stationColors = ref(readingStore.readingColors)
 
 const viewBox = computed(() => {
   const vbPadding = 10
@@ -32,11 +32,20 @@ const viewBox = computed(() => {
 <template>
   <div class="border border-border rounded flex flex-col">
     <svg preserveAspectRatio="xMidYMid meet" :viewBox="viewBox.toString()" class="flex-1">
-      <template v-for="station in stations">
-        <circle :cx="station.x" :cy="station.y" :r="stationSize" :fill="stationColor"></circle>
-      </template>
+      <defs>
+        <template v-for="(station, index) in stations.slice(0, -1)">
+          <linearGradient :id="`gradient-${index}`" gradientUnits="userSpaceOnUse" :x1="station.x" :y1="station.y" :x2="stations[index + 1]?.x" :y2="stations[index + 1]?.y">
+            <stop :offset="0" :stop-color="stationColors[index % stationColors.length]" />
+            <stop :offset="1" :stop-color="stationColors[(index + 1) % stationColors.length]" />
+          </linearGradient>
+        </template>
+      </defs>
+
       <template v-for="(station, index) in stations.slice(0, -1)">
-        <line :x1="station.x" :y1="station.y" :x2="stations[index + 1]?.x" :y2="stations[index + 1]?.y" :stroke="stationColor"></line>
+        <line :x1="station.x" :y1="station.y" :x2="stations[index + 1]?.x" :y2="stations[index + 1]?.y" :stroke="`url(#gradient-${index})`" stroke-width="1"></line>
+      </template>
+      <template v-for="(station, index) in stations">
+        <circle :cx="station.x" :cy="station.y" :r="stationSize" :fill="stationColors[index % stationColors.length]"></circle>
       </template>
     </svg>
   </div>
