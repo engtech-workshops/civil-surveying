@@ -12,7 +12,7 @@ const layoutStore = useLayoutStore()
       <Header></Header>
     </div>
     <div class="p-2 pt-1 flex flex-row gap-2 grow overflow-hidden">
-      <ReadingList class="flex-1 md:w-90" :class="{'flex-1': !layoutStore.showDisplayZone, 'flex-0': layoutStore.showDisplayZone}"></ReadingList>
+      <ReadingList class="flex-1 md:block md:w-90" :class="[layoutStore.showDisplayZone ? 'hidden' : 'block']"></ReadingList>
       <DisplayZone class="flex-1"></DisplayZone>
     </div>
   </div>
